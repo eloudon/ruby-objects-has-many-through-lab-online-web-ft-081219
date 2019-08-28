@@ -20,5 +20,9 @@ def new_appointment(patient, date)
   Appointment.new(patient, date, self)
 end
 
+def patients
+  appointments.map {|appointment| appointment.patient}
+end
+
 
 end
