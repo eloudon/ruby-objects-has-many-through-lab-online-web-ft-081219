@@ -12,4 +12,8 @@ def self.all
   @@all
 end
 
+def appointment
+  Appointment.all.select {|appointment| appointment.Doctor == self}
+end
+
 end
