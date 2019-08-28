@@ -1,20 +1,21 @@
 class Genre
-
-  attr_reader :name, :genre
-  attr_accessor :song
+  attr_accessor :name
 
   def initialize(name)
     @name = name
+    @songs = []
   end
 
   def songs
-    Song.all.select do |song|
-      song.genre == self
-    end
+    @songs
   end
 
-  def artists
-    Song.all.map do |song|
+  def add_song(song)
+    @songs << song
+  end
+
+  def artists                     #=> This is how the other two
+    self.songs.collect do |song|  #=> classes talk to each other
       song.artist
     end
   end
